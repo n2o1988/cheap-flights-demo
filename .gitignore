@@ -6,4 +6,10 @@
 node_modules/
 
 # Vendors directory
-vendor/
+src/vendor/
+
+# build dir
+build/
+
+#js hint
+.jshintrc
