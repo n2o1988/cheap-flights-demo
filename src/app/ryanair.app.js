@@ -10,7 +10,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 define([
     'angular',
-    'cheapFlights/index'    // include the main index.js file as a dependency
+    'cheap-flights/index'    // include the main index.js file as a dependency
 ], function (ng) {
     'use strict';
     
