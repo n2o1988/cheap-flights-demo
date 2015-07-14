@@ -1,0 +1,24 @@
+// main: main.less
+/**
+ * Cheap-Flights module rules 
+ */
+.filters-panel {
+  background: @lightColorBG;
+  color: @lightColorText;
+}
+.filters-panel,
+.results-panel {
+  padding: 10px;
+}
+.ryr-airport-picker {
+  border: 1px solid @grayColorBG;
+  position: relative;
+    
+    i {
+      color: @secondColorBG;
+      position: absolute;
+      right: ceil((@font-size-base/2)); // defined in bootstrap variables
+      top: (@font-size-base - ceil((@font-size-base/2)));
+      cursor: pointer;
+    }
+}

@@ -1,0 +1,14 @@
+{
+  "author": "n2o1988",
+  "name": "cheap-flights-demo",
+  "version": "0.1.0",
+  "bugs": "https://github.com/n2o1988/cheap-flights-demo/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:n2o1988/cheap-flights-demo.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "requirejs": "^2.1.15"
+  }
+}
