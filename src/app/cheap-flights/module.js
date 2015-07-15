@@ -11,13 +11,14 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 define([
     'angular',
+    'text!./home.tpl.html', // the template of the main controller (to be cached at "run")
     'angularRoute',
-    'text!./home.tpl.html'
-], function (ng, ngRoute, homeTpl) {
+    'common/ryanair.directives',
+    'common/ryanair.services'
+], function (ng, homeTpl) {
     'use strict';
     
-    
-    return ng.module('ryanair.cheapFlights',['ngRoute'])
+    return ng.module('ryanair.cheapFlights',['ngRoute', 'ryanair.services', 'ryanair.directives'])
     /** 
      * configuration for the cheap flights module
      */ 

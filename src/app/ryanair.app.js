@@ -11,6 +11,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 define([
     'angular',
     'cheap-flights/index'    // include the main index.js file as a dependency
+    // the main app could include other "common" dependencies as well, such as
+    // directives and services if needed
 ], function (ng) {
     'use strict';
     

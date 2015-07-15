@@ -1,23 +1,13 @@
-// main: main.less
+//out: null, main: ../../../../less/main.less
+// all the global variables are defined in the "variables.less" file which must be linked by the main application .less file.
+// directive-specific variables:
 @animationDuration: .8s;
 @fastAnimationDuration: @animationDuration/2;
 @spinAnimation: spin @animationDuration infinite linear;
 @spinTransformOrigin: 50;
-@padding: 10px;
 @headersHeight: 36px;
 @resultsBoxHeight: 300px;
-    
-/**
- * Cheap-Flights module rules 
- */
-.filters-panel {
-  background: @lightColorBG;
-  color: @lightColorText;
-}
-.filters-panel,
-.results-panel {
-  padding: @padding;
-}
+
 .ryr-airport-picker {
   border: 1px solid @grayColorBG;
   position: relative;
@@ -26,21 +16,25 @@
     i {
       color: @secondColorBG;
       position: absolute;
-      right: ceil((@font-size-base/2)); // defined in bootstrap variables
-      top: (@inputHeight - ceil((@font-size-base/2)));
+      right: ceil((@defaultFontSize/2)); // defined in bootstrap variables
+      top: (@inputHeight - ceil((@defaultFontSize/2)));
       cursor: pointer;
     }
     i.ryr-loader{
         display:none;
     }
 }
-.ryr-airport-picker.loading-data{
+.ryr-airport-picker-wrapper.loading-data{
     opacity:.7;
     
    i.ryr-loader{
         display: block;  
    }
     i.ryr-reverse{
+        display: none;
+    }
+    
+    .ryr-airport-picker-results.open{
         display: none;
     }
 }
@@ -50,7 +44,7 @@
     min-width: 0;
     min-height: 0;
     position: absolute;
-    padding: @padding;
+    padding: @defaultPadding;
     
     opacity:0;
     
@@ -64,7 +58,7 @@
         padding:0!important;
         height: 100%;
         .data{
-            height:@resultsBoxHeight - @headersHeight - (2*@padding);
+            height:@resultsBoxHeight - @headersHeight - (2*@defaultPadding);
             overflow-y: auto;
         }
 
@@ -115,7 +109,7 @@
    .ryr-airport-picker-results{
        width:100%;
         left: 0;
-       top: 2*@inputHeight + @padding;
+       top: 2*@inputHeight + @defaultPadding;
    }
 }
 

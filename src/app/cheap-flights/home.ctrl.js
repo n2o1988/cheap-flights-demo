@@ -14,7 +14,7 @@ define([
 ], function(ng, module) {
    'use strict';
     
-    return module.controller('RyanairCheapFlightsMainCtrl', ['$scope','RyanairData', function($scope, RyanairData){
+    return module.controller('RyanairCheapFlightsMainCtrl', ['$scope', function($scope){
         // the model
         $scope.search = {
             from: null,

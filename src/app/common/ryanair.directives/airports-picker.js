@@ -10,11 +10,17 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 define([
     'angular',
-    './module'
-], function(ng, module) {
+    './module',
+    'text!./airports-picker.tpl.html'
+], function(ng, module, airportsPickerTpl) {
     'use strict';
     
-    module.directive('ryrAirportsPicker', ['$log', 'RyanairData','$timeout', function($log, RyanairData,$timeout){
+    // register cache
+    module.run(['$templateCache', function($templateCache) {
+        $templateCache.put('./airports-picker.tpl.html', airportsPickerTpl);
+    }]);
+    
+    module.directive('ryrAirportsPicker', ['$log', 'AirportsData', function($log, AirportsData){
         
         return {
             restrict: 'E',
@@ -24,31 +30,7 @@ define([
                 to: '=toModel',
                 onChange: '='
             },
-            template:'<div class="ryr-airport-picker-wrapper">'+
-                      '<div class="ryr-airport-picker" ng-class="{\'loading-data\': loadingData}">'+
-                        '<input type="text" class="form-control " ng-model="from" placeholder="From" ng-focus="onFocus(\'from\')" ng-blur="onBlur()" />'+
-                        '<input type="text" class="form-control" ng-model="to" placeholder="To" ng-focus="onFocus(\'to\')" ng-blur="onBlur()"/>'+
-                        '<i class="glyphicon glyphicon-sort ryr-reverse" ng-click="reverse()"></i>'+
-                        '<i class="glyphicon glyphicon-refresh ryr-loader spin" ng-click="reverse()"></i>'+
-                      '</div>' +
-                        '<div class="ryr-airport-picker-results" ng-class="{\'open\':pickerOpened}">'+
-                            '<div class="countries col-sm-8 hidden-xs nopadding">' +
-                                '<div class="legend">Countries</div>' +
-                                '<div class="data">' +
-                                    //'<div ng-repeat="country in countries" ng-bind="::country.name"></div>'+
-                                    '<div ryr-columns-list columns="3" it="country" source="countries">' +
-                                        '{{country}}'+
-                                    '</div>'+
-                                '</div>'+
-                            '</div>'+
-                            '<div class="airports col-sm-4 nopadding">' +
-                                '<div class="legend">Airports</div>' +
-                                '<div class="data">' +
-                                    '<div ng-repeat="airport in airports" ng-bind="::airport.name"></div>' +
-                                '</div>' +
-                            '</div>'+
-                        '</div>'+
-                    '</div>',
+            templateUrl: './airports-picker.tpl.html', // registered from cache (see above)
             link: function(scope, element, attrs){
                 
                 // check required attributes
@@ -63,10 +45,10 @@ define([
                 scope.loadingData = true;
                 // RyanairData will retrieve the airports and valorize the "airports" array. 
                 // The callback is useful to visually update the "loading" icon status
-                scope.airports = RyanairData.getAirports(function(){
+                scope.airports = AirportsData.getAirports(function(){
                     scope.loadingData = false;
                 });
-                scope.countries = RyanairData.getCountries();
+                scope.countries = AirportsData.getCountries();
                 
                 /**
                  * A wrapper for the onChange callback that checks if the function is defined or not.
@@ -87,7 +69,7 @@ define([
                     onChangeWrapper();
                 };
                 
-                scope.onFocus = function(modelName){
+                scope.onFocus = function(){
                     scope.pickerOpened = true;
                 };
                 
@@ -97,5 +79,4 @@ define([
             }
         };
     }]);
-
 });

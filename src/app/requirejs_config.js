@@ -14,14 +14,32 @@ require.config({
     'generateSourceMaps': true,
     'preserveLicenseComments': false,
     'useSourceUrl': true,
-
+    
+    // Ryanair packages
+    // by defining a package (with a main file), the dependencies are resolved relative to 
+    // the package folder
+    packages: [
+        {
+            name: "common/ryanair.services",
+            main: "index"
+        },
+        {
+            name: "common/ryanair.directives",
+            main: "index"
+        }
+    ],
+    
     // runtime paths and shims
     paths: {
+        // Default libraries
         angular: '../vendor/angular/angular.min',
         angularRoute: '../vendor/angular-route/angular-route.min',
         angularTranslate: '../vendor/angular-translate/angular-translate.min',
         domReady: '../vendor/requirejs-domready/domReady',
-        text: '../vendor/requirejs-text/text'
+        text: '../vendor/requirejs-text/text',
+        
+        // Ryanair common modules
+        //ryanairServices: 'common/ryanair.services/index'
     },
     shim: {
         "angular": {

@@ -1,44 +1,24 @@
-// out: main.css
+// out: ../assets/main.css
 /**
  * Variables
  */
-// Ryanair Dark Blue
-@mainColorBG: #22356B;
-@mainColorText: #fff;
-// Ryanair Blue
-@secondColorBG: #426DAB;
-@secondColorText: #fff;
-// Ryanair Yellow
-@thirdColorBG: #FDC40F;
-@thirdColorText: #222;
-// Light Color
-@lightColorBG: #e4e9ed;
-@lightColorText: #222;
-// Gray Color
-@grayColorBG: #ccc;
-@grayColorText: #000;
-
-// Centered content max-width
-@centerContentWidth: 960px;
-
-// Input 
-@inputHeight: 40px;
-@inputFocusColor: #FFFBF0;
-
-// Fonts
-@fontName: "CoreSansN35", "Helvetica Neue", Helvetica, Arial, sans-serif;
-@fontNameLight: "CoreSansN25", "Helvetica Neue", Helvetica, Arial, sans-serif;
-@fontsFolder: '../assets/fonts/';
+@import 'variables.less';
 
 /**
- * Bootstrap compositing and customizations
+ * Import Bootstrap compositing and customizations
  */
 @import 'bootstrap-customizations.less';
 
 /**
- * Modules-specific
+ * Import general ryanair.directives styles
+ * NOTE: we could import the directives separately (only the ones we need)
  */
-@import 'cheap-flights.less';
+@import '../app/common/ryanair.directives/styles/all.less'; 
+
+/**
+ * Import Modules-specific styles
+ */
+@import '../app/cheap-flights/cheap-flights.less';
 
 /**
  * General styles

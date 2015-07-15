@@ -1,5 +1,5 @@
 /*
-Copyright (c) Tue Jul 14 2015 Lamberto Fichera
+Copyright (c) Wed Jul 15 2015 Lamberto Fichera
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
@@ -10,9 +10,15 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
 /**
- * Let's define the required scripts composing the "cheapFlights" module
- */
+ * This is the main "ryanair.directives" module file, which declare the module and
+ * initializes everything as required by its components
+ */ 
 define([
-    './module',
-    './home.ctrl'
-], function () { }); 
+    'angular',
+    'common/ryanair.services'   // used by airports-picker directive
+], function(ng) {
+   'use strict';
+    
+    return ng.module('ryanair.directives', ['ryanair.services']);
+    
+});

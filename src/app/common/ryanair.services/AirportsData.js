@@ -14,9 +14,9 @@ define([
 ], function(ng, module) {
    'use strict';
     
-    
-    module.factory('RyanairData', ['$http','$log', function($http, $log) {
-        var API = 'http://www.ryanair.com/en/api/2/';
+    module.factory('AirportsData', ['$http','$log','RyanairConfig', function($http, $log, RyanairConfig) {
+        var API = RyanairConfig.API;
+        
         var data = {
             fetched: false,
             airports: {},
@@ -77,7 +77,7 @@ define([
         }
         
         
-        var RyanairData = {
+        var AirportsData = {
             
             getAirports: function(callback){
                 fetch(callback);
@@ -90,6 +90,6 @@ define([
             }
         };
         
-        return RyanairData;
+        return AirportsData;
     }]);
 });
