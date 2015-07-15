@@ -4126,6 +4126,93 @@ input.form-control {
   top: 33px;
   cursor: pointer;
 }
+.ryr-airport-picker i.ryr-loader {
+  display: none;
+}
+.ryr-airport-picker.loading-data {
+  opacity: .7;
+}
+.ryr-airport-picker.loading-data i.ryr-loader {
+  display: block;
+}
+.ryr-airport-picker.loading-data i.ryr-reverse {
+  display: none;
+}
+.ryr-airport-picker-results {
+  background: #e4e9ed;
+  min-width: 0;
+  min-height: 0;
+  position: absolute;
+  padding: 10px;
+  opacity: 0;
+  transition: all 0.4s ease;
+  z-index: -1;
+  max-width: 0;
+  max-height: 0;
+  overflow: hidden;
+}
+.ryr-airport-picker-results .countries,
+.ryr-airport-picker-results .airports {
+  height: inherit;
+}
+.ryr-airport-picker-results.open {
+  opacity: 1;
+  min-height: 200px;
+  z-index: 2;
+  max-width: none;
+  max-height: none;
+}
+@media (min-width: 768px) {
+  .ryr-airport-picker-results {
+    left: 100%;
+    top: 0;
+    min-width: 500px;
+  }
+}
+@media (max-width: 767px) {
+  .ryr-airport-picker-results {
+    width: 100%;
+    left: 0;
+    top: 90px;
+  }
+}
+/**
+ * Spin animation
+ */
+.spin {
+  -webkit-transform-origin: 50;
+  transform-origin: 50;
+  -ms-transform-origin: 50;
+  /* IE 9 */
+  -webkit-animation: spin 0.8s infinite linear;
+  -moz-animation: spin 0.8s infinite linear;
+  -o-animation: spin 0.8s infinite linear;
+  animation: spin 0.8s infinite linear;
+}
+@-moz-keyframes spin {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 /**
  * General styles
  */

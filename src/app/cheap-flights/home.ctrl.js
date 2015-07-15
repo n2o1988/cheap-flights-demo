@@ -12,8 +12,9 @@ define([
     'angular',
     './module'
 ], function(ng, module) {
-   
-    return module.controller('RyanairCheapFlightsMainCtrl', ['$scope', function($scope){
+   'use strict';
+    
+    return module.controller('RyanairCheapFlightsMainCtrl', ['$scope','RyanairData', function($scope, RyanairData){
         // the model
         $scope.search = {
             from: null,
@@ -24,6 +25,13 @@ define([
         $scope.onFiltersChanged = function() {
               console.log("filters changed");
         };
+        
+        // initialization function
+        (function init(){
+            
+        })();
+        
+        
     }]);
 });
     

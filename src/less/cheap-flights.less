@@ -1,4 +1,10 @@
 // main: main.less
+@animationDuration: .8s;
+@fastAnimationDuration: @animationDuration/2;
+@spinAnimation: spin @animationDuration infinite linear;
+@spinTransformOrigin: 50;
+@padding: 10px;
+    
 /**
  * Cheap-Flights module rules 
  */
@@ -8,11 +14,12 @@
 }
 .filters-panel,
 .results-panel {
-  padding: 10px;
+  padding: @padding;
 }
 .ryr-airport-picker {
   border: 1px solid @grayColorBG;
   position: relative;
+    
     
     i {
       color: @secondColorBG;
@@ -21,4 +28,105 @@
       top: (@inputHeight - ceil((@font-size-base/2)));
       cursor: pointer;
     }
+    i.ryr-loader{
+        display:none;
+    }
+}
+.ryr-airport-picker.loading-data{
+    opacity:.7;
+    
+   i.ryr-loader{
+        display: block;  
+   }
+    i.ryr-reverse{
+        display: none;
+    }
+}
+
+.ryr-airport-picker-results{
+    background: @lightColorBG;
+    min-width: 0;
+    min-height: 0;
+    position: absolute;
+    padding: @padding;
+    
+    opacity:0;
+    
+    transition: all @fastAnimationDuration ease;
+    z-index: -1;
+    max-width: 0;
+    max-height: 0;
+    
+    overflow: hidden;
+    
+    .countries,
+    .airports{
+        height: inherit;
+    }
+    
+}
+.ryr-airport-picker-results.open{
+    opacity: 1;
+    min-height: 200px;
+    z-index: 2;
+    max-width: none;
+    max-height: none;
+}
+
+
+@media (min-width: 768px){
+   .ryr-airport-picker-results{
+        left: 100%;
+       top: 0;
+       min-width: 500px;
+   }
+}
+@media (max-width: 767px){
+   .ryr-airport-picker-results{
+       width:100%;
+        left: 0;
+       top: 2*@inputHeight + @padding;
+   }
+}
+
+
+
+/**
+ * Spin animation
+ */
+.spin {
+  -webkit-transform-origin: @spinTransformOrigin;
+ transform-origin:@spinTransformOrigin;
+ -ms-transform-origin:@spinTransformOrigin; /* IE 9 */
+ -webkit-animation: @spinAnimation;
+ -moz-animation: @spinAnimation;
+ -o-animation: @spinAnimation;
+ animation: @spinAnimation;  
+}
+
+@-moz-keyframes spin {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
