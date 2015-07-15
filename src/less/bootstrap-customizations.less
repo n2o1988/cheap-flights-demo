@@ -88,7 +88,11 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 // Font
 @font-family-sans-serif: @fontName;
-@icon-font-path:          "../vendor/bootstrap/fonts/";
+// warning: the less compiler of Visual Studio is different than the one of Brackets: 
+// the first one is relative to the directory where the variable is used (i.e. vendor/bootstrap/less), 
+// the second is relative to the directory of the file which "links" the bootstrap library, which is 
+// this one. So, basically... pick a LESS compiler and stick with it.
+//@icon-font-path:          "../vendor/bootstrap/fonts/"; // dev-note: comment if using visual studio ide with web-essentials
 @font-size-base:          14px; // this is the base font size for glyphicons too
 
 // Navbar (using navbar-inverse)
@@ -132,7 +136,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
-    background-color: #FFFBF0;
+    background-color: @inputFocusColor;
 }
 input.form-control{
     height: @inputHeight;

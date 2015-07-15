@@ -32,11 +32,20 @@ define([
                         '<i class="glyphicon glyphicon-refresh ryr-loader spin" ng-click="reverse()"></i>'+
                       '</div>' +
                         '<div class="ryr-airport-picker-results" ng-class="{\'open\':pickerOpened}">'+
-                            '<div class="countries col-sm-8 hidden-xs">'+
-                                '<div class="legend">Countries</div>'+
+                            '<div class="countries col-sm-8 hidden-xs nopadding">' +
+                                '<div class="legend">Countries</div>' +
+                                '<div class="data">' +
+                                    //'<div ng-repeat="country in countries" ng-bind="::country.name"></div>'+
+                                    '<div ryr-columns-list columns="3" it="country" source="countries">' +
+                                        '{{country}}'+
+                                    '</div>'+
+                                '</div>'+
                             '</div>'+
-                            '<div class="airports col-sm-4">'+
-                                '<div class="legend">Airports</div>'+
+                            '<div class="airports col-sm-4 nopadding">' +
+                                '<div class="legend">Airports</div>' +
+                                '<div class="data">' +
+                                    '<div ng-repeat="airport in airports" ng-bind="::airport.name"></div>' +
+                                '</div>' +
                             '</div>'+
                         '</div>'+
                     '</div>',
@@ -83,9 +92,10 @@ define([
                 };
                 
                 scope.onBlur = function(){
-                    scope.pickerOpened = false;
+                    //scope.pickerOpened = false;
                 };
             }
         };
     }]);
+
 });

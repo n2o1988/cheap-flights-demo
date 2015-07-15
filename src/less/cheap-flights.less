@@ -4,6 +4,8 @@
 @spinAnimation: spin @animationDuration infinite linear;
 @spinTransformOrigin: 50;
 @padding: 10px;
+@headersHeight: 36px;
+@resultsBoxHeight: 300px;
     
 /**
  * Cheap-Flights module rules 
@@ -54,14 +56,38 @@
     
     transition: all @fastAnimationDuration ease;
     z-index: -1;
-    max-width: 0;
-    max-height: 0;
     
     overflow: hidden;
     
     .countries,
     .airports{
-        height: inherit;
+        padding:0!important;
+        height: 100%;
+        .data{
+            height:@resultsBoxHeight - @headersHeight - (2*@padding);
+            overflow-y: auto;
+        }
+
+        .legend{
+            padding: 8px;
+            height: @headersHeight;
+        }
+    }
+
+    .countries{
+        background: white;
+        
+        .legend{
+            background: @secondColorBG;
+            color: @secondColorText;
+        }
+    }
+    .airports{
+        background: @inputFocusColor;
+        .legend{
+            background: @mainColorBG;
+            color: @mainColorText;   
+        }
     }
     
 }
@@ -78,7 +104,11 @@
    .ryr-airport-picker-results{
         left: 100%;
        top: 0;
+   }
+   .ryr-airport-picker-results.open{
        min-width: 500px;
+       height: @resultsBoxHeight;
+       overflow: hidden;
    }
 }
 @media (max-width: 767px){
