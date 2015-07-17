@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-controller="RyanairCtrl">
+  <head>
+    <title>Ryanair Demo - Lamberto Fichera</title>
+
+    <!-- social media tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@ryanair">
+    <meta name="twitter:title" content="Cheap Flights | Cheap Flights to Europe | Ryanair">
+    <meta name="twitter:description" content="Book Cheap Flights direct at the official Ryanair website for Europe's lowest fares. Fully allocated seating and much more now available online">
+    <meta name="twitter:creator" content="@ryanair">
+    <meta name="twitter:image:src" content="http://www.ryanair.com/static/images/seo/seo-logo-200.png">
+    <meta property="og:title" content="Cheap Flights | Cheap Flights to Europe | Ryanair" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://www.ryanair.com" />
+    <meta property="og:image" content="http://www.ryanair.com/static/images/seo/seo-logo-200.png" />
+    <meta property="og:description" content="Book Cheap Flights direct at the official Ryanair website for Europe's lowest fares. Fully allocated seating and much more now available online">
+    <meta content="Ryanair" property="og:site_name">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="assets/images/favicon-16.png" type="image/png" rel="icon" />
+
+      <link rel="stylesheet" type="text/css" href="assets/cheap-flights-demo-0.1.0.css" />
+      
+      
+      <script src="cross-browser/custom.modernizr.min.js"></script>
+      <script>
+        // start loading the shims/polyfills if needed
+          Modernizr.load([
+              {
+                  test: Modernizr.csscolumns,
+                  nope: 'cross-browser/polyfills/css3-multi-column.min'
+              }
+          ]);
+      </script>
+  </head>
+  <body>
+      <div class="navbar navbar-inverse">
+        <div class="navbar-header">
+          <div class="navbar-brand">
+            <a href="#"></a>
+          </div>
+            <!-- Language selector -->
+            <!--
+          <div class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link">Mark Otto</a></div>
+            -->
+        </div>
+      </div>
+
+    <div class="container centered-content" ng-view></div>
+      
+      <!-- Scripts -->
+      <script src="vendor/requirejs/require.js" data-main="src/app/requirejs_config.js"></script>
+      
+  </body>
+</html>

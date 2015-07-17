@@ -10,10 +10,18 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
 /**
- * Let's define the required scripts composing the "cheapFlights" module
+ * bootstraps angular app onto the window.document node, after dom is ready
  */
 define([
-    './module',
-    './home.ctrl',
-    './CheapFlightsService'
-], function () { }); 
+    'require',
+    'angular',
+    'ryanair.app',      // our application module
+    'domReady'
+], function (require, ng, app, domReady) {
+    'use strict';
+    
+    domReady(function () {
+        ng.bootstrap(document, [app.name]);
+    });
+
+});

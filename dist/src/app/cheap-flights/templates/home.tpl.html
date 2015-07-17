@@ -1,0 +1,132 @@
+<h3 class="page-header">Cheap European Flights</h3>
+
+<div class="row">
+    <!-- Filters block -->
+    <div class="col-sm-4 filters-panel">
+        <div class="form-group">
+            <label>Destinations</label>
+            <ryr-airports-picker from-model="search.from" to-model="search.to" on-change="onAirportsChanged"></ryr-airports-picker>
+        </div>
+        
+        
+        <div class="form-group">
+            <label>Departure date</label>
+            <div class="pull-right">
+                <small>
+                    <span ng-bind="search.outStartDate|date"></span> <br class="visible-sm-block" /><span class="hidden-sm">-</span> <span ng-bind="search.outEndDate|date"></span> 
+                </small>
+            </div>
+            <div ryr-slider type="date" from-model="search.outStartDate" to-model="search.outEndDate" range="outboundDatesSliderRange" on-change="onOutboundDatesChanged"></div>
+        </div>
+        
+        
+        <div class="form-group">
+            <label>Price range</label>
+            <div class="pull-right">
+                <small>
+                    <span ng-bind="search.maxPrice|currency:result.currencySymbol:0"></span>
+                </small>
+            </div>
+            <div ryr-slider model="search.maxPrice" range="priceSlidersRange" step="1" on-change="onFiltersChanged"></div>
+        </div>
+        
+        <!-- Return Section -->
+        <div class="form-group">
+            <label>Add a return flight</label>
+            <input type="checkbox" ryr-checkbox-toggle ng-model="inbound" ng-change="inboundChanged()"/> 
+        </div>
+        
+        <div ng-show="inbound">
+            <!-- second dates slider (inbound) -->
+            <div class="form-group">
+                <label>Return date</label>
+                <div class="pull-right">
+                    <small>
+                        <span ng-bind="search.inStartDate|date"></span> <br class="visible-sm-block" /><span class="hidden-sm">-</span> <span ng-bind="search.inEndDate|date"></span>
+                    </small>
+                </div>
+                <div ryr-slider type="date" from-model="search.inStartDate" to-model="search.inEndDate" range="inboundDatesSliderRange" on-change="onFiltersChanged"></div>
+            </div>
+            
+            <!-- tripMin/tripMax (permanence) stay -->
+            <div class="form-group">
+                <label>Length of Trip</label>
+                <div class="pull-right">
+                    <small>
+                        {{search.tripMin}} - {{search.tripMax}} days
+                    </small>
+                </div>
+                <div ryr-slider from-model="search.tripMin" to-model="search.tripMax" range="tripSlidersRange" step="1" on-change="onFiltersChanged"></div>
+            </div>
+        
+        </div>
+    </div>
+    
+    <!-- Results block -->
+    <div class="col-sm-8 results-panel" ryr-loading="searchInProgress">
+        <div ng-switch="(search.from!=null || search.to!=null)">
+            <div class="alert alert-info" ng-switch-when="false">Please select the airports first</div>
+            <div ng-switch-when="true">
+                <!-- No results -->
+                <div class="alert alert-info"  ng-show="!result.flights.length && !searchInProgress">No results to show for this search, please broaden your search criteria and try again.</div>
+                <!-- Results -->
+                <ul ng-show="result.flights.length" class="ryr-cheap-flights">
+                    
+                    <!-- flight template -->
+                    <li  ng-repeat-start="flight in result.flights" class="ryr-cheap-flight" ng-class="{'has-inbound':flight.inbound, 'offer-type-{{flight.summary.advertText.type}}': flight.summary.advertText.type, 'expanded': expandedFlight==$index}" ng-click="setExpandedFlight($index);">
+                        
+                        <!-- Airports -->
+                        <div class="pull-left">
+                            {{::flight.outbound.airportFrom.name}}
+                            <i class="flight-icon"></i>
+                            {{::flight.outbound.airportTo.name}}
+                        </div>
+                        
+                        
+                        <!-- Prices -->
+                        <div class="pull-right flight-price">
+                            {{::flight.summary.price.value|currency:flight.summary.price.currencySymbol}}
+                        </div>
+                        
+                        
+                        <!-- Dates -->
+                        <div class="pull-right flight-dates" >
+                            <span class="flight-date outbound">
+                                <span class="inbound-only">&#8594;</span>
+                                {{::flight.outbound.dateFrom|date}}
+                            </span>
+                            <span class="flight-date inbound-only"><span>&#8592;</span> {{::flight.inbound.dateFrom|date}}</span>
+                        </div>
+                        
+                        <!-- Special -->
+                        <div class="pull-right flight-offer" ng-if="flight.summary.advertText.message">
+                            {{::flight.summary.advertText.message}}
+                        </div>
+                        
+                        <div class="clearfix"></div>
+                    </li>
+                    
+                    <li ng-repeat-end class="flight-details-box">
+                        <div>
+                            <div class="pull-left">
+                                Dep. <strong>{{::flight.outbound.dateFrom|date:'fullDate'}}, {{::flight.outbound.dateFrom|date:'shortTime'}}</strong>
+                            </div>
+                            <div class="pull-right">{{::duration(flight.outbound)}} hours</div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div ng-if="flight.inbound" class="">
+                            <div class="pull-left">
+                                Ret. <strong>{{::flight.inbound.dateFrom|date:'fullDate'}}, {{::flight.inbound.dateFrom|date:'shortTime'}}</strong>
+                            </div>
+                            <div class="pull-right">{{::duration(flight.inbound)}} hours</div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <p ng-if="flight.summary.flightViewUrl" class="flight-link">
+                            <a class="btn" ng-href="http://www.ryanair.com{{flight.summary.flightViewUrl}}">Get this fare</a>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
