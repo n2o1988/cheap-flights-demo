@@ -6,7 +6,7 @@ It consists of a small AngularJS web app using the live Ryanair API for cheap fl
 - When a button is pressed, a component which shows all the information relating to the cheapest flight between those points, for the chosen date period
 
 ## Installation
-See INSTALLATION.txt for details
+See INSTALLATION.txt for details https://github.com/n2o1988/cheap-flights-demo/blob/master/INSTALLATION.txt
 
 ## Airport Picker
 The for allows the user to fill in both origin and destination but also just one of them: in case the user fills the origin, 
