@@ -54,6 +54,7 @@ Important notes: the proxy script is as simpliest as possible and potentially vu
 ## App Structure
 The structure of the application is modular and it uses RequireJS for dependency management. 
 We have a main AngularJS app, which is the "host" for different modules. Some of them are in the "src/app/common" folder and are common directives and services that every module could use. The "cheap-flights" module, which is the main application module by now, is making extensive use of the common modules.
+Each module has its own controllers, services, directives and even .less files (to be linked by the main.less). This makes them completely draggable from one project to the other, provided that the dependencies are set.
 
 ```
 cheap-flights-demo/
