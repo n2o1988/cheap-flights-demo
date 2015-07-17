@@ -32,14 +32,15 @@ require.config({
     // runtime paths and shims
     paths: {
         // Default libraries
-        angular: '../vendor/angular/angular.min',
-        angularRoute: '../vendor/angular-route/angular-route.min',
-        angularTranslate: '../vendor/angular-translate/angular-translate.min',
-        domReady: '../vendor/requirejs-domready/domReady',
-        text: '../vendor/requirejs-text/text',
+        angular: '../../vendor/angular/angular.min',
+        angularRoute: '../../vendor/angular-route/angular-route.min',
+        angularTranslate: '../../vendor/angular-translate/angular-translate.min',
+        angularAnimate: '../../vendor/angular-animate/angular-animate.min',
+        angularDatepicker: '../vendor/angular-datepicker/dist/index.min',
+        noUiSlider: '../../vendor/nouislider/distribute/nouislider.min',
+        domReady: '../../vendor/requirejs-domready/domReady',
+        text: '../../vendor/requirejs-text/text'
         
-        // Ryanair common modules
-        //ryanairServices: 'common/ryanair.services/index'
     },
     shim: {
         "angular": {
@@ -49,6 +50,12 @@ require.config({
             deps: ["angular"]
         },
         "angularTranslate": {
+            deps: ["angular"]
+        },
+        "angularAnimate": {
+            deps: ["angular"]
+        },
+        "angularDatepicker": {
             deps: ["angular"]
         }
     },

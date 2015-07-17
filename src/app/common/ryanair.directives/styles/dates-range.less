@@ -1,0 +1,33 @@
+//out: null, main: ../../../../less/main.less
+// all the global variables are defined in the "variables.less" file which must be linked by the main application .less file.
+
+.ryr-dates-range{
+    .dates-range > div > div > table{
+        border: 1px solid @mainColorBG;
+    }    
+    
+    
+    
+    // Overrides
+    // no round borders
+    [date-picker] span {
+        border-radius: 0;
+    }
+    
+    // now
+    [date-picker] .now{
+        background: @thirdColorBG;
+        color: @thirdColorText!important;   
+    }
+    
+    // start
+    [date-picker] .active {
+        background: @mainColorBG!important;
+        color: @mainColorText!important;
+    }
+    // in-between
+    [date-range] [date-picker] .after.before{
+       background: @lightColorBG;
+        color: @lightColorText;
+    }
+}

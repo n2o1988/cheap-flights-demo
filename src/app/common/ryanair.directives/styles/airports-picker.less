@@ -6,7 +6,8 @@
 @spinAnimation: spin @animationDuration infinite linear;
 @spinTransformOrigin: 50;
 @headersHeight: 36px;
-@resultsBoxHeight: 300px;
+@resultsBoxHeight: 350px;
+@resultsBoxWidth: 550px;
 
 .ryr-airport-picker {
   border: 1px solid @grayColorBG;
@@ -23,7 +24,22 @@
     i.ryr-loader{
         display:none;
     }
+    
+    input{
+        background-image: url('@{imagesFolder}/plane-sprite-small.png');
+          background-repeat: no-repeat;
+          background-size: 32px;
+          padding-left: 42px;   
+    }
+    input.picker-from{
+        background-position: 5px -28px;   
+    }
+    input.picker-to {
+        background-position: 5px 10px;
+    }
 }
+
+
 .ryr-airport-picker-wrapper.loading-data{
     opacity:.7;
     
@@ -59,28 +75,76 @@
         height: 100%;
         .data{
             height:@resultsBoxHeight - @headersHeight - (2*@defaultPadding);
-            overflow-y: auto;
+            
+            .no-results{
+                margin: 10px;
+                font-size: larger;
+            }
         }
 
         .legend{
             padding: 8px;
             height: @headersHeight;
+            
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow-x: hidden;
+        }
+        
+        ul{
+            list-style-type: none;
+            margin:2px 0 0 0;
+            padding:0;
+            height: @resultsBoxHeight - @headersHeight - (2*@defaultPadding) - 2;
+        }
+        
+        li{
+            padding:4px;
+            font-size:13px;
+            cursor: pointer;
+        }   
+        li.highlight{
+            color: @secondColorBG !important;   
+            font-weight: bold;
         }
     }
 
     .countries{
         background: white;
         
+        .data {
+            overflow: hidden;
+        }
+        
         .legend{
             background: @secondColorBG;
             color: @secondColorText;
         }
+        
+        li.selected,
+        li:hover{
+            background-color: @secondColorBG;
+            color: @secondColorText !important;
+            font-weight: normal;
+        }
     }
     .airports{
         background: @inputFocusColor;
+        
+        .data{
+            overflow-y: auto;
+        }
+        
         .legend{
             background: @mainColorBG;
             color: @mainColorText;   
+        }
+        
+        li.selected,
+        li:hover{
+            background-color: @mainColorBG;
+            color: @thirdColorBG!important;
+            font-weight: normal;
         }
     }
     
@@ -93,6 +157,13 @@
     max-height: none;
 }
 
+/* While typing, grey out the un-matching countries */
+.ryr-airport-picker-results.typing{
+    .countries li{
+        color: #999;   
+    }
+}
+
 
 @media (min-width: 768px){
    .ryr-airport-picker-results{
@@ -100,7 +171,7 @@
        top: 0;
    }
    .ryr-airport-picker-results.open{
-       min-width: 500px;
+       min-width: @resultsBoxWidth;
        height: @resultsBoxHeight;
        overflow: hidden;
    }

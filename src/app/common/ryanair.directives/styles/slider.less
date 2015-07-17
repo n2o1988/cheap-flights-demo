@@ -1,0 +1,34 @@
+//out: null, main: ../../../../less/main.less
+// overrides
+.ryr-slider.noUi-connect,
+.ryr-slider .noUi-connect{
+    background: @secondColorBG;   
+}
+
+.ryr-slider .noUi-handle{
+    border-radius: 0;
+    background: @thirdColorBG;
+    border-color: darken(@thirdColorBG, 10%);
+}
+
+.ryr-slider-tooltip {
+    display: none;
+	position: absolute;
+	border: 1px solid @grayColorBG;
+	background: #fff;
+    padding: 5px;
+    text-align: center;
+}
+.ryr-slider-dates .ryr-slider-tooltip{
+    top: -60px;
+	left: -25px;
+	width: 100px;
+}
+.ryr-slider-numbers .ryr-slider-tooltip{
+    top: -30px;
+	left: -8px;
+	width: 60px;
+}
+.noUi-handle.noUi-active .ryr-slider-tooltip{
+    display: block;
+}

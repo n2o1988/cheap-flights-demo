@@ -13,5 +13,9 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  * This file lists the elements included in the module "ryanair.directives"
  */
 define([
-    './airports-picker'
+    './airports-picker',
+    //'./dates-range',
+    './checkbox-toggle',
+    './slider',
+    './loading'
 ], function(){});

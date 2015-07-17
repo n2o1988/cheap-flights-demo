@@ -6,7 +6,7 @@
 node_modules/
 
 # Vendors directory
-src/vendor/
+vendor/
 
 # build dir
 build/

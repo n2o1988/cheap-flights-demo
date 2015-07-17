@@ -1,21 +1,42 @@
 <div class="ryr-airport-picker-wrapper" ng-class="{'loading-data': loadingData}">
   <div class="ryr-airport-picker" >
-    <input type="text" class="form-control " ng-model="from" placeholder="From" ng-focus="onFocus('from')" ng-blur="onBlur()" />
-    <input type="text" class="form-control" ng-model="to" placeholder="To" ng-focus="onFocus('to')" ng-blur="onBlur()"/>
+    <input type="text" name="from" class="form-control picker-from" placeholder="From" onclick="this.setSelectionRange(0, this.value.length)"
+           ng-model="fromSearch"  
+           ng-focus="onFocus('from', fromSearch)" 
+           ng-blur="onBlur($event)"
+           ng-keyup="onKeyup($event)"
+           ng-keydown="onKeydown($event)"
+       />
+    <input type="text" name="to" class="form-control picker-to" placeholder="To" onclick="this.setSelectionRange(0, this.value.length)" 
+           ng-model="toSearch"  
+           ng-focus="onFocus('to', toSearch)" 
+           ng-blur="onBlur($event)"
+           ng-keyup="onKeyup($event)"
+           ng-keydown="onKeydown($event)"/>
     <i class="glyphicon glyphicon-sort ryr-reverse" ng-click="reverse()"></i>
     <i class="glyphicon glyphicon-refresh ryr-loader spin" ng-click="reverse()"></i>
   </div>
-    <div class="ryr-airport-picker-results" ng-class="{'open':pickerOpened}">
+    <div class="ryr-airport-picker-results" ng-class="{'open':pickerOpened, 'typing': currentModelValue}">
         <div class="countries col-sm-8 hidden-xs nopadding">
             <div class="legend">Countries</div>
             <div class="data">
-                <div ng-repeat="country in countries" ng-bind="::country.name"></div>
+                <ul class="multiple-columns">
+                    <li ng-class="{'highlight': !currentModelValue}">All countries</li>
+                    <li ng-repeat="country in visibleCountries" ng-bind="::country.name" ng-mousedown="setCountry(country,$event)" ng-class="{'selected':country._selected, 'highlight':country._highlight}"></li>
+                </ul>
             </div>
         </div>
         <div class="airports col-sm-4 nopadding">
-            <div class="legend">Airports</div>
+            <div class="legend">
+                Airports
+                <small ng-show="currentModelName=='from' && !from && to">reaching {{to.name}}</small>
+                <small ng-show="currentModelName=='to' && from">reached by {{from.name}}</small>
+            </div>
             <div class="data">
-                <div ng-repeat="airport in airports" ng-bind="::airport.name"></div>
+                <ul ng-show="visibleAirports.length > 0" id="{{::resultsListId}}">
+                    <li ng-repeat="airport in visibleAirports" ng-bind="::airport.name" ng-mousedown="selectAirport(airport,$event)" ng-class="{'highlight': $index===activeAirportIndex}"></li>
+                </ul>
+                <p class="no-results" ng-show="visibleAirports.length==0">No matching airport</p>
             </div>
         </div>
     </div>

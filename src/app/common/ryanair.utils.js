@@ -1,5 +1,5 @@
 /*
-Copyright (c) Wed Jul 15 2015 Lamberto Fichera
+Copyright (c) Thu Jul 16 2015 Lamberto Fichera
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
@@ -9,16 +9,13 @@ IN AN ACTION OF CONTRACT, TORTOR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-define([
-    'angular'
-], function(ng){
+define(['angular'], function(ng) {
     'use-strict';
-   
-    return ng.module('ryanair.config', [])
-    .constant('RyanairConfig', {
-        'API': 'http://www.ryanair.com/en/api/2/',
-        'DEFAULT_PERMANENCE': 30, // in days
-        'MAX_RESERVATION_DATE': 365, // in days from today,
-        'PROXY_URL': 'server/proxy.php?url='
+    
+    return ng.module('ryanair.utils', [])
+    .factory('Utils', function() {
+       return {
+              
+       };
     });
 });

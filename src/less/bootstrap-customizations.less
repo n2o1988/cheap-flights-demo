@@ -14,54 +14,54 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
 // Core variables and mixins
-@import '../vendor/bootstrap/less/variables.less';
-@import '../vendor/bootstrap/less/mixins.less';
+@import '../../vendor/bootstrap/less/variables.less';
+@import '../../vendor/bootstrap/less/mixins.less';
 // Reset and dependencies
-@import '../vendor/bootstrap/less/normalize.less';
+@import '../../vendor/bootstrap/less/normalize.less';
 //@import "print.less";
-@import '../vendor/bootstrap/less/glyphicons.less';
+@import '../../vendor/bootstrap/less/glyphicons.less';
 
 // Core CSS
-@import '../vendor/bootstrap/less/scaffolding.less';
-@import '../vendor/bootstrap/less/type.less';
-@import "../vendor/bootstrap/less/code.less";
-@import '../vendor/bootstrap/less/grid.less';
-//@import "../vendor/bootstrap/less/tables.less";
-@import '../vendor/bootstrap/less/forms.less';
-@import '../vendor/bootstrap/less/buttons.less';
+@import '../../vendor/bootstrap/less/scaffolding.less';
+@import '../../vendor/bootstrap/less/type.less';
+@import "../../vendor/bootstrap/less/code.less";
+@import '../../vendor/bootstrap/less/grid.less';
+//@import "../../vendor/bootstrap/less/tables.less";
+@import '../../vendor/bootstrap/less/forms.less';
+@import '../../vendor/bootstrap/less/buttons.less';
 
 // Components
-@import '../vendor/bootstrap/less/component-animations.less';
-//@import '../vendor/bootstrap/less/dropdowns.less';
-//@import '../vendor/bootstrap/less/button-groups.less';
-//@import '../vendor/bootstrap/less/input-groups.less';
-//@import '../vendor/bootstrap/less/navs.less';
-@import '../vendor/bootstrap/less/navbar.less';
-//@import "../vendor/bootstrap/less/breadcrumbs.less";
-//@import "../vendor/bootstrap/less/pagination.less";
-//@import "../vendor/bootstrap/less/pager.less";
-//@import "../vendor/bootstrap/less/labels.less";
-//@import "../vendor/bootstrap/less/badges.less";
-//@import "../vendor/bootstrap/less/jumbotron.less";
-//@import "../vendor/bootstrap/less/thumbnails.less";
-//@import "../vendor/bootstrap/less/alerts.less";
-//@import "../vendor/bootstrap/less/progress-bars.less";
-//@import "../vendor/bootstrap/less/media.less";
-//@import "../vendor/bootstrap/less/list-group.less";
-//@import "../vendor/bootstrap/less/panels.less";
-@import "../vendor/bootstrap/less/responsive-embed.less";
-//@import "../vendor/bootstrap/less/wells.less";
-//@import "../vendor/bootstrap/less/close.less";
+@import '../../vendor/bootstrap/less/component-animations.less';
+@import '../../vendor/bootstrap/less/dropdowns.less';
+//@import '../../vendor/bootstrap/less/button-groups.less';
+@import '../../vendor/bootstrap/less/input-groups.less';
+//@import '../../vendor/bootstrap/less/navs.less';
+@import '../../vendor/bootstrap/less/navbar.less';
+//@import "../../vendor/bootstrap/less/breadcrumbs.less";
+//@import "../../vendor/bootstrap/less/pagination.less";
+//@import "../../vendor/bootstrap/less/pager.less";
+//@import "../../vendor/bootstrap/less/labels.less";
+//@import "../../vendor/bootstrap/less/badges.less";
+//@import "../../vendor/bootstrap/less/jumbotron.less";
+//@import "../../vendor/bootstrap/less/thumbnails.less";
+@import "../../vendor/bootstrap/less/alerts.less";
+//@import "../../vendor/bootstrap/less/progress-bars.less";
+//@import "../../vendor/bootstrap/less/media.less";
+//@import "../../vendor/bootstrap/less/list-group.less";
+//@import "../../vendor/bootstrap/less/panels.less";
+@import "../../vendor/bootstrap/less/responsive-embed.less";
+//@import "../../vendor/bootstrap/less/wells.less";
+//@import "../../vendor/bootstrap/less/close.less";
 
 // Components w/ JavaScript
-//@import '../vendor/bootstrap/less/modals.less';
-//@import '../vendor/bootstrap/less/tooltip.less';
-//@import '../vendor/bootstrap/less/popovers.less';
-//@import '../vendor/bootstrap/less/carousel.less';
+//@import '../../vendor/bootstrap/less/modals.less';
+//@import '../../vendor/bootstrap/less/tooltip.less';
+//@import '../../vendor/bootstrap/less/popovers.less';
+//@import '../../vendor/bootstrap/less/carousel.less';
 
 // Utility classes
-@import '../vendor/bootstrap/less/utilities.less';
-@import '../vendor/bootstrap/less/responsive-utilities.less';
+@import '../../vendor/bootstrap/less/utilities.less';
+@import '../../vendor/bootstrap/less/responsive-utilities.less';
 
 
 
@@ -85,6 +85,10 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 @brand-info:            @secondColorBG;
 @brand-warning:         @thirdColorBG;
 @btn-warning-color:     @mainColorBG;
+@state-info-bg:         transparent;
+@state-info-text:    @secondColorBG;
+@state-info-border:  transparent;
+
 
 // Font
 @font-family-sans-serif: @fontName;
@@ -92,7 +96,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // the first one is relative to the directory where the variable is used (i.e. vendor/bootstrap/less), 
 // the second is relative to the directory of the file which "links" the bootstrap library, which is 
 // this one. So, basically... pick a LESS compiler and stick with it.
-@icon-font-path:          "../vendor/bootstrap/fonts/"; // dev-note: comment if using visual studio ide with web-essentials
+@icon-font-path:          "../assets/"; // dev-note: comment if using visual studio ide with web-essentials
 @font-size-base:          14px; // this is the base font size for glyphicons too
 
 // Navbar (using navbar-inverse)
@@ -129,6 +133,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 .page-header{
     margin-top:20px;
     border: none;
+    color: @mainColorBG;
+    font-weight: bold;
 }
 // Inputs
 .form-control:focus{
@@ -144,4 +150,16 @@ input.form-control{
 }
 .form-group:last-child {
   margin-bottom: 0;
+}
+
+// Input group (checkbox-like)
+.form-group .btn-group .btn-danger{
+    background: @thirdColorBG;
+    color: @thirdColorText;
+    border-color: darken(@thirdColorBG,10%);
+} 
+
+// Alerts
+.alert{
+    font-size: @defaultFontSize *1.5;
 }

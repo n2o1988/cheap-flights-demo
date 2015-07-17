@@ -1,12 +1,202 @@
 //out: null, main: ../../less/main.less
+// Offer colors
+@offerType1: #fdc40f;
+@offerType1Text: @mainColorBG;
+@offerType2: #c181ad;
+@offerType2Text: #fff;
+@offerType3: #3865b0;
+@offerType3Text: #fff;
+@offerTypeDef: #22356b;
+@offerDefText: #fff;
+
 /**
  * Cheap-Flights module rules 
  */
 .filters-panel {
   background: @lightColorBG;
   color: @lightColorText;
-}
-.filters-panel,
-.results-panel {
   padding: @defaultPadding;
+    
+    /*
+     * distance for ryrSlider directive
+     */
+    .ryr-slider{
+        margin: 15px;
+    }
+    
+    .form-group {
+        color: @mainColorBG;  
+        
+        label{
+            font-weight: normal;
+        }
+    }
+}
+.results-panel{
+  padding: 0 0px 0 @defaultPadding/2;
+}
+
+.ryr-cheap-flights{
+    margin:0;
+    padding: 0;
+    list-style-type: none;
+}
+.ryr-cheap-flight{
+   width:100%;
+    display: block;
+    //font-size: floor(@defaultFontSize*1.2);
+    color: @mainColorBG;
+    background-color: lighten(@lightColorBG, 5%);
+    padding: @defaultPadding/2;
+    margin-bottom: @defaultPadding/2;
+    cursor: pointer;
+    
+    transition: all 0.3s ease;
+    
+    .flight-offer,
+    .flight-date{
+        font-size: floor(@defaultFontSize*0.8);
+        
+    }
+    
+    .flight-price{
+        font-size: ceil(@defaultFontSize*1.3);
+        margin-left: 15px;
+    }
+    
+    .flight-offer{
+          margin-right: 15px;
+    }
+    
+    
+}
+
+.inbound-only{
+    display: none; 
+}
+
+
+.flight-icon{
+        background-image: url('@{imagesFolder}/inbound-outbound-sprite.png');
+      background-repeat: no-repeat;
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      vertical-align: middle;
+}
+
+
+.has-inbound {
+    .flight-icon{
+          background-position: 0 -24px;
+    }   
+    .inbound-only {
+        display: : inline;
+        display: inline-block;
+    }
+    
+    .flight-date{
+        display: block;
+    }
+}
+
+/* Offer colors */
+.ryr-cheap-flight.offer-type-1 .flight-offer{
+    color: @offerType1;
+}
+.ryr-cheap-flight.offer-type-2 .flight-offer{
+    color: @offerType2;
+}
+.ryr-cheap-flight.offer-type-3 .flight-offer{
+    color: @offerType3;
+}
+.ryr-cheap-flight.offer-type-def .flight-offer{
+    color: @offerTypeDef;
+}
+
+/* Expanded offer */
+.flight-details-box{
+    display:none;
+    min-height:  300px;
+    padding: @defaultPadding;
+    
+    .flight-link{
+        margin-top:2*@defaultPadding;
+        text-align:right;
+        
+        .btn{
+            background: @lightColorBG;
+            color: @lightColorText;
+        }
+    }
+    
+  background: url(https://upload.wikimedia.org/wikipedia/commons/c/c8/Blank_map_europe.png);/*DEMO PURPOSE!! the box should contain a real MAP, not just an image*/
+  background-size: cover;
+}
+.ryr-cheap-flight.expanded{
+    margin-bottom:0;
+}
+.ryr-cheap-flight.expanded + .flight-details-box{
+    display: block;
+}
+
+
+
+/* Offer colors when expanded */
+.ryr-cheap-flight.expanded.offer-type-1,
+.ryr-cheap-flight.expanded.offer-type-1+ .flight-details-box  .flight-link .btn
+{
+   background-color: @offerType1;
+    color: @offerType1Text;
+    
+    .flight-offer{
+        color: @offerType1Text;
+    }
+}
+.ryr-cheap-flight.expanded.offer-type-2,
+.ryr-cheap-flight.expanded.offer-type-2 + .flight-details-box .flight-link .btn{
+    background-color: @offerType2;
+    color: @offerType2Text;
+    
+    .flight-offer{
+        color: @offerType2Text;
+    }
+   
+}
+.ryr-cheap-flight.expanded.offer-type-3,
+.ryr-cheap-flight.expanded.offer-type-3+ .flight-details-box  .flight-link .btn{
+    background-color: @offerType3;
+    color: @offerType3Text;
+    
+    .flight-offer{
+        color: @offerType3Text;
+    }
+   
+}
+.ryr-cheap-flight.expanded.offer-type-def,
+.ryr-cheap-flight.expanded.offer-type-def+ .flight-details-box  .flight-link .btn{
+    background-color: @offerTypeDef;
+    color: @offerDefText;
+    
+    .flight-offer{
+        color: @offerDefText;
+    }
+   
+}
+
+
+.ryr-cheap-flight.expanded.offer-type-3 .flight-icon, 
+.ryr-cheap-flight.expanded.offer-type-def .flight-icon {
+    background-image: url('@{imagesFolder}/inbound-outbound-white-sprite.png');
+}
+
+
+/**
+ * responsive variables from bootstrap
+ */
+ @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max)
+ {
+     .filters-panel .ryr-slider{
+        margin-top:30px;
+    }
 }

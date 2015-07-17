@@ -201,8 +201,8 @@ th {
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url('../vendor/bootstrap/fonts/glyphicons-halflings-regular.eot');
-  src: url('../vendor/bootstrap/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../vendor/bootstrap/fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('../vendor/bootstrap/fonts/glyphicons-halflings-regular.woff') format('woff'), url('../vendor/bootstrap/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../vendor/bootstrap/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  src: url('../assets/glyphicons-halflings-regular.eot');
+  src: url('../assets/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../assets/glyphicons-halflings-regular.woff2') format('woff2'), url('../assets/glyphicons-halflings-regular.woff') format('woff'), url('../assets/glyphicons-halflings-regular.ttf') format('truetype'), url('../assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 .glyphicon {
   position: relative;
@@ -1284,11 +1284,11 @@ a.text-success:focus {
   color: #2b542c;
 }
 .text-info {
-  color: #31708f;
+  color: #426dab;
 }
 a.text-info:hover,
 a.text-info:focus {
-  color: #245269;
+  color: #345686;
 }
 .text-warning {
   color: #8a6d3b;
@@ -1320,11 +1320,11 @@ a.bg-success:focus {
   background-color: #c1e2b3;
 }
 .bg-info {
-  background-color: #d9edf7;
+  background-color: transparent;
 }
 a.bg-info:hover,
 a.bg-info:focus {
-  background-color: #afd9ee;
+  background-color: rgba(0, 0, 0, 0);
 }
 .bg-warning {
   background-color: #fcf8e3;
@@ -3235,6 +3235,303 @@ tbody.collapse.in {
   -webkit-transition-timing-function: ease;
   transition-timing-function: ease;
 }
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-top: 4px dashed;
+  border-top: 4px solid \9;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
+.dropup,
+.dropdown {
+  position: relative;
+}
+.dropdown-toggle:focus {
+  outline: 0;
+}
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  list-style: none;
+  font-size: 14px;
+  text-align: left;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0px;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  background-clip: padding-box;
+}
+.dropdown-menu.pull-right {
+  right: 0;
+  left: auto;
+}
+.dropdown-menu .divider {
+  height: 1px;
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}
+.dropdown-menu > li > a {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.42857143;
+  color: #333333;
+  white-space: nowrap;
+}
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  text-decoration: none;
+  color: #262626;
+  background-color: #f5f5f5;
+}
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+  color: #ffffff;
+  text-decoration: none;
+  outline: 0;
+  background-color: #22356b;
+}
+.dropdown-menu > .disabled > a,
+.dropdown-menu > .disabled > a:hover,
+.dropdown-menu > .disabled > a:focus {
+  color: #777777;
+}
+.dropdown-menu > .disabled > a:hover,
+.dropdown-menu > .disabled > a:focus {
+  text-decoration: none;
+  background-color: transparent;
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  cursor: not-allowed;
+}
+.open > .dropdown-menu {
+  display: block;
+}
+.open > a {
+  outline: 0;
+}
+.dropdown-menu-right {
+  left: auto;
+  right: 0;
+}
+.dropdown-menu-left {
+  left: 0;
+  right: auto;
+}
+.dropdown-header {
+  display: block;
+  padding: 3px 20px;
+  font-size: 12px;
+  line-height: 1.42857143;
+  color: #777777;
+  white-space: nowrap;
+}
+.dropdown-backdrop {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 990;
+}
+.pull-right > .dropdown-menu {
+  right: 0;
+  left: auto;
+}
+.dropup .caret,
+.navbar-fixed-bottom .dropdown .caret {
+  border-top: 0;
+  border-bottom: 4px dashed;
+  border-bottom: 4px solid \9;
+  content: "";
+}
+.dropup .dropdown-menu,
+.navbar-fixed-bottom .dropdown .dropdown-menu {
+  top: auto;
+  bottom: 100%;
+  margin-bottom: 2px;
+}
+@media (min-width: 768px) {
+  .navbar-right .dropdown-menu {
+    left: auto;
+    right: 0;
+  }
+  .navbar-right .dropdown-menu-left {
+    left: 0;
+    right: auto;
+  }
+}
+.input-group {
+  position: relative;
+  display: table;
+  border-collapse: separate;
+}
+.input-group[class*="col-"] {
+  float: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+.input-group .form-control {
+  position: relative;
+  z-index: 2;
+  float: left;
+  width: 100%;
+  margin-bottom: 0;
+}
+.input-group-lg > .form-control,
+.input-group-lg > .input-group-addon,
+.input-group-lg > .input-group-btn > .btn {
+  height: 46px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: 0px;
+}
+select.input-group-lg > .form-control,
+select.input-group-lg > .input-group-addon,
+select.input-group-lg > .input-group-btn > .btn {
+  height: 46px;
+  line-height: 46px;
+}
+textarea.input-group-lg > .form-control,
+textarea.input-group-lg > .input-group-addon,
+textarea.input-group-lg > .input-group-btn > .btn,
+select[multiple].input-group-lg > .form-control,
+select[multiple].input-group-lg > .input-group-addon,
+select[multiple].input-group-lg > .input-group-btn > .btn {
+  height: auto;
+}
+.input-group-sm > .form-control,
+.input-group-sm > .input-group-addon,
+.input-group-sm > .input-group-btn > .btn {
+  height: 30px;
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 0px;
+}
+select.input-group-sm > .form-control,
+select.input-group-sm > .input-group-addon,
+select.input-group-sm > .input-group-btn > .btn {
+  height: 30px;
+  line-height: 30px;
+}
+textarea.input-group-sm > .form-control,
+textarea.input-group-sm > .input-group-addon,
+textarea.input-group-sm > .input-group-btn > .btn,
+select[multiple].input-group-sm > .form-control,
+select[multiple].input-group-sm > .input-group-addon,
+select[multiple].input-group-sm > .input-group-btn > .btn {
+  height: auto;
+}
+.input-group-addon,
+.input-group-btn,
+.input-group .form-control {
+  display: table-cell;
+}
+.input-group-addon:not(:first-child):not(:last-child),
+.input-group-btn:not(:first-child):not(:last-child),
+.input-group .form-control:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+.input-group-addon,
+.input-group-btn {
+  width: 1%;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.input-group-addon {
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1;
+  color: #555555;
+  text-align: center;
+  background-color: #eeeeee;
+  border: 1px solid #cccccc;
+  border-radius: 0px;
+}
+.input-group-addon.input-sm {
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 0px;
+}
+.input-group-addon.input-lg {
+  padding: 10px 16px;
+  font-size: 18px;
+  border-radius: 0px;
+}
+.input-group-addon input[type="radio"],
+.input-group-addon input[type="checkbox"] {
+  margin-top: 0;
+}
+.input-group .form-control:first-child,
+.input-group-addon:first-child,
+.input-group-btn:first-child > .btn,
+.input-group-btn:first-child > .btn-group > .btn,
+.input-group-btn:first-child > .dropdown-toggle,
+.input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle),
+.input-group-btn:last-child > .btn-group:not(:last-child) > .btn {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+.input-group-addon:first-child {
+  border-right: 0;
+}
+.input-group .form-control:last-child,
+.input-group-addon:last-child,
+.input-group-btn:last-child > .btn,
+.input-group-btn:last-child > .btn-group > .btn,
+.input-group-btn:last-child > .dropdown-toggle,
+.input-group-btn:first-child > .btn:not(:first-child),
+.input-group-btn:first-child > .btn-group:not(:first-child) > .btn {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+.input-group-addon:last-child {
+  border-left: 0;
+}
+.input-group-btn {
+  position: relative;
+  font-size: 0;
+  white-space: nowrap;
+}
+.input-group-btn > .btn {
+  position: relative;
+}
+.input-group-btn > .btn + .btn {
+  margin-left: -1px;
+}
+.input-group-btn > .btn:hover,
+.input-group-btn > .btn:focus,
+.input-group-btn > .btn:active {
+  z-index: 2;
+}
+.input-group-btn:first-child > .btn,
+.input-group-btn:first-child > .btn-group {
+  margin-right: -1px;
+}
+.input-group-btn:last-child > .btn,
+.input-group-btn:last-child > .btn-group {
+  z-index: 2;
+  margin-left: -1px;
+}
 .navbar {
   position: relative;
   min-height: 64px;
@@ -3759,6 +4056,81 @@ fieldset[disabled] .navbar-inverse .btn-link:hover,
 fieldset[disabled] .navbar-inverse .btn-link:focus {
   color: #444444;
 }
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 0px;
+}
+.alert h4 {
+  margin-top: 0;
+  color: inherit;
+}
+.alert .alert-link {
+  font-weight: bold;
+}
+.alert > p,
+.alert > ul {
+  margin-bottom: 0;
+}
+.alert > p + p {
+  margin-top: 5px;
+}
+.alert-dismissable,
+.alert-dismissible {
+  padding-right: 35px;
+}
+.alert-dismissable .close,
+.alert-dismissible .close {
+  position: relative;
+  top: -2px;
+  right: -21px;
+  color: inherit;
+}
+.alert-success {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #3c763d;
+}
+.alert-success hr {
+  border-top-color: #c9e2b3;
+}
+.alert-success .alert-link {
+  color: #2b542c;
+}
+.alert-info {
+  background-color: transparent;
+  border-color: transparent;
+  color: #426dab;
+}
+.alert-info hr {
+  border-top-color: rgba(0, 0, 0, 0);
+}
+.alert-info .alert-link {
+  color: #345686;
+}
+.alert-warning {
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+  color: #8a6d3b;
+}
+.alert-warning hr {
+  border-top-color: #f7e1b5;
+}
+.alert-warning .alert-link {
+  color: #66512c;
+}
+.alert-danger {
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  color: #a94442;
+}
+.alert-danger hr {
+  border-top-color: #e4b9c0;
+}
+.alert-danger .alert-link {
+  color: #843534;
+}
 .embed-responsive {
   position: relative;
   display: block;
@@ -4089,6 +4461,8 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .page-header {
   margin-top: 20px;
   border: none;
+  color: #22356b;
+  font-weight: bold;
 }
 .form-control:focus {
   -o-box-shadow: none;
@@ -4103,6 +4477,14 @@ input.form-control {
 }
 .form-group:last-child {
   margin-bottom: 0;
+}
+.form-group .btn-group .btn-danger {
+  background: #fdc40f;
+  color: #222222;
+  border-color: #d7a402;
+}
+.alert {
+  font-size: 21px;
 }
 /**
  * Import general ryanair.directives styles
@@ -4121,6 +4503,18 @@ input.form-control {
 }
 .ryr-airport-picker i.ryr-loader {
   display: none;
+}
+.ryr-airport-picker input {
+  background-image: url('../assets/images/plane-sprite-small.png');
+  background-repeat: no-repeat;
+  background-size: 32px;
+  padding-left: 42px;
+}
+.ryr-airport-picker input.picker-from {
+  background-position: 5px -28px;
+}
+.ryr-airport-picker input.picker-to {
+  background-position: 5px 10px;
 }
 .ryr-airport-picker-wrapper.loading-data {
   opacity: .7;
@@ -4152,27 +4546,70 @@ input.form-control {
 }
 .ryr-airport-picker-results .countries .data,
 .ryr-airport-picker-results .airports .data {
-  height: 244px;
-  overflow-y: auto;
+  height: 294px;
+}
+.ryr-airport-picker-results .countries .data .no-results,
+.ryr-airport-picker-results .airports .data .no-results {
+  margin: 10px;
+  font-size: larger;
 }
 .ryr-airport-picker-results .countries .legend,
 .ryr-airport-picker-results .airports .legend {
   padding: 8px;
   height: 36px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+}
+.ryr-airport-picker-results .countries ul,
+.ryr-airport-picker-results .airports ul {
+  list-style-type: none;
+  margin: 2px 0 0 0;
+  padding: 0;
+  height: 292px;
+}
+.ryr-airport-picker-results .countries li,
+.ryr-airport-picker-results .airports li {
+  padding: 4px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.ryr-airport-picker-results .countries li.highlight,
+.ryr-airport-picker-results .airports li.highlight {
+  color: #426dab !important;
+  font-weight: bold;
 }
 .ryr-airport-picker-results .countries {
   background: white;
+}
+.ryr-airport-picker-results .countries .data {
+  overflow: hidden;
 }
 .ryr-airport-picker-results .countries .legend {
   background: #426dab;
   color: #ffffff;
 }
+.ryr-airport-picker-results .countries li.selected,
+.ryr-airport-picker-results .countries li:hover {
+  background-color: #426dab;
+  color: #ffffff !important;
+  font-weight: normal;
+}
 .ryr-airport-picker-results .airports {
   background: #fffbf0;
+}
+.ryr-airport-picker-results .airports .data {
+  overflow-y: auto;
 }
 .ryr-airport-picker-results .airports .legend {
   background: #22356b;
   color: #ffffff;
+}
+.ryr-airport-picker-results .airports li.selected,
+.ryr-airport-picker-results .airports li:hover {
+  background-color: #22356b;
+  color: #fdc40f !important;
+  font-weight: normal;
 }
 .ryr-airport-picker-results.open {
   opacity: 1;
@@ -4181,14 +4618,18 @@ input.form-control {
   max-width: none;
   max-height: none;
 }
+/* While typing, grey out the un-matching countries */
+.ryr-airport-picker-results.typing .countries li {
+  color: #999;
+}
 @media (min-width: 768px) {
   .ryr-airport-picker-results {
     left: 100%;
     top: 0;
   }
   .ryr-airport-picker-results.open {
-    min-width: 500px;
-    height: 300px;
+    min-width: 550px;
+    height: 350px;
     overflow: hidden;
   }
 }
@@ -4236,6 +4677,135 @@ input.form-control {
     transform: rotate(360deg);
   }
 }
+.ryr-dates-range .dates-range > div > div > table {
+  border: 1px solid #22356b;
+}
+.ryr-dates-range [date-picker] span {
+  border-radius: 0;
+}
+.ryr-dates-range [date-picker] .now {
+  background: #fdc40f;
+  color: #222222 !important;
+}
+.ryr-dates-range [date-picker] .active {
+  background: #22356b !important;
+  color: #ffffff !important;
+}
+.ryr-dates-range [date-range] [date-picker] .after.before {
+  background: #e4e9ed;
+  color: #222222;
+}
+.ryr-slider.noUi-connect,
+.ryr-slider .noUi-connect {
+  background: #426dab;
+}
+.ryr-slider .noUi-handle {
+  border-radius: 0;
+  background: #fdc40f;
+  border-color: #d7a402;
+}
+.ryr-slider-tooltip {
+  display: none;
+  position: absolute;
+  border: 1px solid #cccccc;
+  background: #fff;
+  padding: 5px;
+  text-align: center;
+}
+.ryr-slider-dates .ryr-slider-tooltip {
+  top: -60px;
+  left: -25px;
+  width: 100px;
+}
+.ryr-slider-numbers .ryr-slider-tooltip {
+  top: -30px;
+  left: -8px;
+  width: 60px;
+}
+.noUi-handle.noUi-active .ryr-slider-tooltip {
+  display: block;
+}
+.loading-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  min-height: 100px;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.75);
+  display: none;
+}
+.loading-container.loading-in-progress {
+  display: block;
+}
+.loading.custom1 {
+  top: 50%;
+  position: absolute;
+}
+.loading-anim {
+  -webkit-animation-name: rotate;
+  -webkit-animation-duration: 1.5s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: rotate;
+  -moz-animation-duration: 1.5s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  animation-name: rotate;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+.loading-rotate {
+  background-image: url('../assets/images/ra_spinner_rotate_layer.svg'), none;
+}
+.loading-static {
+  background-image: url('../assets/images/ra_spinner_static_layer.svg'), none;
+}
+.no-cssanimations .loading-rotate {
+  background-image: url('../assets/images/spinner-gif-90px-10ms-18f.gif');
+}
+.no-cssanimations .loading-static {
+  background-image: none;
+}
+.loading {
+  height: 90px;
+  width: 90px;
+  background-size: cover;
+  top: 50%;
+  left: 50%;
+  margin-left: -45px;
+  margin-top: -45px;
+  background-repeat: no-repeat;
+}
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-moz-keyframes rotate {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+  }
+}
 /**
  * Import Modules-specific styles
  */
@@ -4245,10 +4815,154 @@ input.form-control {
 .filters-panel {
   background: #e4e9ed;
   color: #222222;
-}
-.filters-panel,
-.results-panel {
   padding: 10px;
+  /*
+     * distance for ryrSlider directive
+     */
+}
+.filters-panel .ryr-slider {
+  margin: 15px;
+}
+.filters-panel .form-group {
+  color: #22356b;
+}
+.filters-panel .form-group label {
+  font-weight: normal;
+}
+.results-panel {
+  padding: 0 0px 0 5px;
+}
+.ryr-cheap-flights {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.ryr-cheap-flight {
+  width: 100%;
+  display: block;
+  color: #22356b;
+  background-color: #f3f5f7;
+  padding: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.ryr-cheap-flight .flight-offer,
+.ryr-cheap-flight .flight-date {
+  font-size: 11px;
+}
+.ryr-cheap-flight .flight-price {
+  font-size: 19px;
+  margin-left: 15px;
+}
+.ryr-cheap-flight .flight-offer {
+  margin-right: 15px;
+}
+.inbound-only {
+  display: none;
+}
+.flight-icon {
+  background-image: url('../assets/images/inbound-outbound-sprite.png');
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+}
+.has-inbound .flight-icon {
+  background-position: 0 -24px;
+}
+.has-inbound .inbound-only {
+  display: : inline;
+  display: inline-block;
+}
+.has-inbound .flight-date {
+  display: block;
+}
+/* Offer colors */
+.ryr-cheap-flight.offer-type-1 .flight-offer {
+  color: #fdc40f;
+}
+.ryr-cheap-flight.offer-type-2 .flight-offer {
+  color: #c181ad;
+}
+.ryr-cheap-flight.offer-type-3 .flight-offer {
+  color: #3865b0;
+}
+.ryr-cheap-flight.offer-type-def .flight-offer {
+  color: #22356b;
+}
+/* Expanded offer */
+.flight-details-box {
+  display: none;
+  min-height: 300px;
+  padding: 10px;
+  background: url(https://upload.wikimedia.org/wikipedia/commons/c/c8/Blank_map_europe.png);
+  /*DEMO PURPOSE!! the box should contain a real MAP, not just an image*/
+  background-size: cover;
+}
+.flight-details-box .flight-link {
+  margin-top: 20px;
+  text-align: right;
+}
+.flight-details-box .flight-link .btn {
+  background: #e4e9ed;
+  color: #222222;
+}
+.ryr-cheap-flight.expanded {
+  margin-bottom: 0;
+}
+.ryr-cheap-flight.expanded + .flight-details-box {
+  display: block;
+}
+/* Offer colors when expanded */
+.ryr-cheap-flight.expanded.offer-type-1,
+.ryr-cheap-flight.expanded.offer-type-1 + .flight-details-box .flight-link .btn {
+  background-color: #fdc40f;
+  color: #22356b;
+}
+.ryr-cheap-flight.expanded.offer-type-1 .flight-offer,
+.ryr-cheap-flight.expanded.offer-type-1 + .flight-details-box .flight-link .btn .flight-offer {
+  color: #22356b;
+}
+.ryr-cheap-flight.expanded.offer-type-2,
+.ryr-cheap-flight.expanded.offer-type-2 + .flight-details-box .flight-link .btn {
+  background-color: #c181ad;
+  color: #ffffff;
+}
+.ryr-cheap-flight.expanded.offer-type-2 .flight-offer,
+.ryr-cheap-flight.expanded.offer-type-2 + .flight-details-box .flight-link .btn .flight-offer {
+  color: #ffffff;
+}
+.ryr-cheap-flight.expanded.offer-type-3,
+.ryr-cheap-flight.expanded.offer-type-3 + .flight-details-box .flight-link .btn {
+  background-color: #3865b0;
+  color: #ffffff;
+}
+.ryr-cheap-flight.expanded.offer-type-3 .flight-offer,
+.ryr-cheap-flight.expanded.offer-type-3 + .flight-details-box .flight-link .btn .flight-offer {
+  color: #ffffff;
+}
+.ryr-cheap-flight.expanded.offer-type-def,
+.ryr-cheap-flight.expanded.offer-type-def + .flight-details-box .flight-link .btn {
+  background-color: #22356b;
+  color: #ffffff;
+}
+.ryr-cheap-flight.expanded.offer-type-def .flight-offer,
+.ryr-cheap-flight.expanded.offer-type-def + .flight-details-box .flight-link .btn .flight-offer {
+  color: #ffffff;
+}
+.ryr-cheap-flight.expanded.offer-type-3 .flight-icon,
+.ryr-cheap-flight.expanded.offer-type-def .flight-icon {
+  background-image: url('../assets/images/inbound-outbound-white-sprite.png');
+}
+/**
+ * responsive variables from bootstrap
+ */
+@media (min-width: 768px) and (max-width: 991px) {
+  .filters-panel .ryr-slider {
+    margin-top: 30px;
+  }
 }
 /**
  * General styles
@@ -4281,4 +4995,11 @@ h6 {
 .centered-content {
   max-width: 960px;
   margin: 0 auto;
+}
+.multiple-columns {
+  -webkit-column-count: 3;
+  /* Chrome, Safari, Opera */
+  -moz-column-count: 3;
+  /* Firefox */
+  column-count: 3;
 }
