@@ -1,0 +1,34 @@
+Installation Notes.
+
+## Web Server Apache 
+
+for processing requests to the "proxy.php" script, located in /server folder. 
+It is also possible to use an external proxy, by changing the url in the "RyanairConfig" service, located in
+/src/app/common/ryanair.config.js
+
+There you can find other configurations the user can make. 
+
+## Installation
+
+1. Install Node.js
+2. Clone the repo and enter cheap-flights-demo directory
+3. Make sure to install bower and grunt (npm -g install grunt-cli bower)
+4. npm install
+5. bower install
+6. grunt build
+7. drop the newly created folder "build" under your apache (or other) web service
+
+
+## Dist
+
+The dist/ folder contains the result of the "grunt build" command, so it is ready to go
+
+
+## Notes
+
+For some strange reasons the "compile" task I was setting up to minify and optimize the sources is not working. 
+I will further investigate on the possible reasons. In the meantime, you should be aware that the "build" folder contains 
+all the sources, un-minified. 
+
+
+
