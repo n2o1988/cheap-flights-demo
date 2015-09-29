@@ -356,6 +356,7 @@ define([
                 if(navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(function(position){
                         //TODO: deal with it. Find the closest airport (maybe euclidean distance?)
+			//TODO: do it!
                     });
                 }
             }
