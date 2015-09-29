@@ -24,7 +24,7 @@ define([
     /**
      * The main controller of the application, containing common logics
      */ 
-    .controller('RyanairCtrl', function(){
-          
+    .controller('RyanairCtrl', function($log){
+          $log.debug('This is the main Ryanair Controller');
     });
 });
